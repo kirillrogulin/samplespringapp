@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context = "http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- <bean id="network" class="smplApp.Network">
+		<property name="name" value="My cool network"></property>
+		<property name="dev" ref="device"></property>
+	</bean>
+	<bean id="device" class="smplApp.Device"></bean> -->
+	
+	<!-- <bean id="network" class="smplApp.Network" autowire="byType">
+		<property name="name" value="My cool network"></property>
+		<property name="dev" ref="device"></property>
+	</bean>
+	<bean id="device" class="smplApp.Device"></bean> -->
+	
+	<!-- <bean id="network" class="smplApp.Network" autowire="byName">
+		<property name="name" value="My cool network"></property>
+		<property name="dev" ref="device"></property>
+	</bean>
+	<bean id="device" name="dev" class="smplApp.Device"></bean> -->
+	
+	<bean id="network" class="smplApp.Network" autowire="constructor">
+		<!-- <property name="name" value="My cool network"></property> -->
+		<!-- <property name="dev" ref="device"></property> -->
+		<constructor-arg value="My cool network"></constructor-arg>
+	</bean>
+	<bean id="device" name="dev" class="smplApp.Device"></bean>
+</beans>
