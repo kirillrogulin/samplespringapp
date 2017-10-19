@@ -1,6 +1,5 @@
 package smplApp.Config;
 
-import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -15,7 +14,7 @@ public class AppConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		return new Class<?>[] {
-			DispatcherServlet.class
+			WebAppConfig.class
 		};
 	}
 

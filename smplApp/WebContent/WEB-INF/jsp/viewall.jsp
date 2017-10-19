@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="smplApp.*,java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +13,15 @@
 	<title>All Probes view</title>
 </head>
 <body>
+	<%
+		List<Device> devList = (List<Device>) request.getAttribute("devices");
+	%>
 	<h2>View all devices from database:</h2>
-	<c:forEach items="${devices}" var="dev">
+	<c:forEach items="${devList}" var="dev">
 		<hr/>
-		${dev.getId}
-		${dev.getName}
-		${dev.getLocation}
+		${dev.id()}
+		${dev.name()}
+		${dev.location()}
 		<hr/>
 	</c:forEach>
 </body>

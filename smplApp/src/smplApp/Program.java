@@ -2,13 +2,12 @@ package smplApp;
 
 import java.util.List;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import smplApp.utils.dao.DeviceDAO;
-import smplApp.utils.dao.DeviceDAOImpl;
 
 public class Program {
+	@Autowired
+	static DeviceDAO deviceDao;
 
 	public static void main(String[] args) throws ClassNotFoundException {
 //		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
@@ -19,12 +18,12 @@ public class Program {
 //		System.out.println(net1);
 //		System.out.println(net1.getDev());
 		
-		ApplicationContext gtx = new ClassPathXmlApplicationContext("datasource.xml");
-		DeviceDAOImpl devDAO = (DeviceDAOImpl) gtx.getBean("deviceDao");
-		System.out.println(devDAO.toString());
+//		ApplicationContext gtx = new ClassPathXmlApplicationContext("datasource.xml");
+//		DeviceDAOImpl devDAO = (DeviceDAOImpl) gtx.getBean("deviceDao");
+		System.out.println(deviceDao.toString());
 		
 		List<Device> devs;
-		devs = devDAO.getAll();
+		devs = deviceDao.getAll();
 		System.out.println("ALL DEVICES:\n");
 		for(Device d: devs) {
 			System.out.println(d);

@@ -4,10 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import smplApp.Device;
 import smplApp.Network;
 
+@Component
 public class NetworkMapper implements RowMapper<Network> {
 
 	@Override
